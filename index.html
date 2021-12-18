@@ -4,8 +4,57 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>这是我的子站点 - 信念D力量</title>
+
+	<style type="text/css">
+		* {
+			-webkit-box-sizing: border-box;
+	     	-moz-box-sizing: border-box;
+	        box-sizing: border-box;
+		}
+
+		body {
+			padding: 0;
+			margin: 0;
+			background: white;
+			font-size: 14px;
+		}
+
+		#main {
+			display: block;
+			background: #fe7f7f;
+			min-width: 450px;
+			max-width: 890px;
+			margin: 0 auto;
+			padding: 12px 8px;
+			min-height: 250px;
+
+		}
+
+		#main a {
+			color: white;
+		}
+	</style>
 </head>
 <body>
-	
+	<main id="main">
+		<nav id="main-nav">
+			<a href="">首页</a>
+		</nav>
+		
+
+	</main>
+
+	<script src="./lib/vue.js"></script>
+	<script type="text/javascript">
+		const Counter = {
+			data() {
+				return {
+
+				}
+			}
+		}
+
+		Vue.createApp(Counter).mount('#main')
+	</script>
 </body>
 </html>
