@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh_CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="信念D力量">
+  <link rel="canonical" href="https://www.zsf90.com/winform/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>WinForm - 编程文档 - 信念D力量</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/zsf90.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WinForm";
+    var mkdocs_page_input_path = "winform.md";
+    var mkdocs_page_url = "/winform/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 编程文档 - 信念D力量</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">语言</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../c/">C</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cplusplus/">C++</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../rust/">Rust</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../html/">HTML</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavsScript</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../csharp/">CSharp</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">WinForm</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#messagebox">MessageBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">显示时间</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">控件布局</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#anchor">anchor 锚定</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">几种常用的固定位置</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dock">Dock 停靠</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">左右布局</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#layoutengine">布局器 LayoutEngine</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">自定义布局器</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">关于</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">编程文档 - 信念D力量</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>语言 &raquo;</li>
+        
+      
+    
+    <li>WinForm</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="winform">WinForm 桌面开发</h1>
+<h2 id="messagebox">MessageBox</h2>
+<p>在测试时我们可能会用到 <code>MessageBox</code> 来弹出一个窗口显示一些我们要显示的数据。</p>
+<p>这个对象的 <code>Show()</code> 方法有多个重载，调用相应的方法可以显示不同的方式。</p>
+<h2 id="_1">显示时间</h2>
+<p>这个例子一共使用了两个控件，一个按钮和一个文本框。实现的功能是点击按钮然后让文本框中显示当前时间。</p>
+<pre><code class="language-csharp">private void OnShowTimeClicked(object sender, EventArgs e)
+{
+    string time = DateTime.Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+    textBox_Time.Text = time;
+}
+</code></pre>
+<h2 id="_2">控件布局</h2>
+<ul>
+<li>可视化布局</li>
+<li>手工布局</li>
+<li>布局器布局</li>
+</ul>
+<h3 id="anchor">anchor 锚定</h3>
+<p>Anchor 可以让控件固定显示的位置，使用的方法是先把控件拉倒想要显示的位置，然后设置相应的 Anchor 就可以实现在窗口大小变化时控件的相对位置不变。</p>
+<h4 id="_3">几种常用的固定位置</h4>
+<ul>
+<li>固定到左上、右上、左下、右下角。</li>
+<li>固定到上中、左中、下中、右中、中心</li>
+</ul>
+<h3 id="dock">Dock 停靠</h3>
+<p>Dock 可以让一个控件停靠在上、下、左、右、中五个位置。</p>
+<p>以在窗口中放置三个 <code>Panel</code> 为例，实现上左中布局，只要分别设置三个 <code>Panel</code> 的 <code>Dock</code> 为上、左、中即可。</p>
+<p><img alt="Dock 停靠" src="../img/post/winform-dock.png" /></p>
+<h4 id="_4">左右布局</h4>
+<p>左右布局实际上是先把一个 <code>Panel</code> 靠左停靠，然后让另一个靠中间停靠，最后再在中间的 <code>Panel</code> 中放置一个 <code>Panel</code> 并且停靠在顶部。
+<img alt="Dock 停靠" src="../img/post/winform-dock-left-right.png" /></p>
+<h3 id="layoutengine">布局器 LayoutEngine</h3>
+<p>布局器 <code>LayoutEngine</code> 负责子控件的布局。</p>
+<h4 id="_5">自定义布局器</h4>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../csharp/" class="btn btn-neutral" title="CSharp"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../csharp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+site_name: 命令文档 - 信念D力量
+site_description: 该网站收集了各种编程命令的笔记。
+site_author: 信念D力量
+site_url: https://www.zsf90.com
+copyright: 'Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a>'
+
+nav:
+  - 首页: index.md
+  - 命令笔记:
+    - MkDocs: mkdocs.md
+    - Node.js: nodejs.md
+    - Yarn: yarn.md
+  - 关于:
+    - 'About': 'about.md'
+    - 'License': 'license.md'
+
+theme:
+  name: mkdocs # readthedocs
+  locale: zh_CN
+  sticky_navigation: false # 侧栏是否一起滚动
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+
+extra_css:
+  - css/zsf90.css
+
+markdown_extensions:
+  - admonition
+
