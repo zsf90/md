@@ -1,0 +1,168 @@
+* {
+	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #f5f5d5;
+	font-size: 14px;
+	min-width: 420px;
+	font-family: arial,x-locale-body,sans-serif;
+}
+
+.main {
+	display: block;
+	padding: 12px 8px;
+}
+
+.main,.footer {
+	margin: 0 auto;
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+	border: 4mm ridge rgba(155, 220, 50, 0.4);
+}
+
+/* 站点 Logo */
+.site-logo {
+	/* border-bottom: 1px solid #d3d3d3; */
+	margin: 0;
+	padding-bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+.site-logo a {
+	color: #038149;
+	font-size: 4rem;
+	letter-spacing: 1.2rem;
+}
+
+.menus {
+	padding: 4px 0;
+}
+
+.menus__item {
+	margin: 0 12px;
+	color: #009687;
+	font-size: 1.15rem;
+	font-weight: bold;
+}
+
+
+/* section__title  */
+.section__title {
+	font-size: 1.75rem;
+	font-weight: 900;
+	text-align: center;
+	letter-spacing: 1.5rem;
+	padding-bottom: 0.12rem;
+	/* border-bottom: 1px solid #d3d3d3; */
+	color: #14c1b1;
+}
+
+/* 卡片容器 */
+.card-wrap {
+	display: grid;
+	gap: 12px;
+}
+.card {
+	border: 1px solid #d3d3d3;
+    padding: 6px;
+}
+/* 卡片标题 */
+.card__title {
+	margin: 4px 0;
+}
+/* 卡片标题链接 */
+.card__title a {
+	color: #009687;
+	font-size: 1.12rem;
+}
+.card__title a:hover {
+	color: #005e54;
+	font-size: 1.15rem;
+	background-color: #d3d3d3;
+}
+
+/* 卡片描述 */
+.card__desc {
+	color: black;
+	font-weight: bold;
+	letter-spacing: 0.08rem;
+}
+
+.footer {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: #bccd8d;
+}
+
+
+/* 屏幕宽度等于或大于 500px 时的样式 */
+@media screen and (min-width: 500px) {
+	.main,.footer {
+		width: 100%;
+	}
+
+	.card-wrap {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+}
+
+/* 屏幕宽度等于或大于 650px 时的样式 */
+@media screen and (min-width: 650px) {
+	.main,.footer {
+		width: 650px;
+	}
+	.card-wrap {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+}
+
+/* 屏幕宽度等于或大于 800px 时的样式 */
+@media screen and (min-width: 800px) {
+	.main,.footer {
+		width: 800px;
+	}
+
+	.card-wrap {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* 屏幕宽度等于或大于 950px 时的样式 */
+@media screen and (min-width: 950px) {
+	.main,.footer {
+		width: 950px;
+	}
+
+	.card-wrap {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* 屏幕宽度等于或大于 1050px 时的样式 */
+@media screen and (min-width: 1050px) {
+	.main,.footer {
+		width: 1050px;
+	}
+
+	.card-wrap {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

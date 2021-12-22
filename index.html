@@ -2,47 +2,61 @@
 <html lang="zh_CN">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>这是我的子站点 - 信念D力量</title>
-
-	<style type="text/css">
-		* {
-			-webkit-box-sizing: border-box;
-	     	-moz-box-sizing: border-box;
-	        box-sizing: border-box;
-		}
-
-		body {
-			padding: 0;
-			margin: 0;
-			background: white;
-			font-size: 14px;
-		}
-
-		#main {
-			display: block;
-			background: #fe7f7f;
-			min-width: 450px;
-			max-width: 890px;
-			margin: 0 auto;
-			padding: 12px 8px;
-			min-height: 250px;
-
-		}
-
-		#main a {
-			color: white;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="./lib/style.css">
+	<link rel="shortcut icon" href="./lib/favicon.ico">
 </head>
 <body>
-	<main id="main">
-		<nav id="main-nav">
-			<a href="">首页</a>
+	<main class="main">
+		<nav class="nav">
+			<h1 class="site-logo">信念D力量<a href="https://zsf90.github.io/md" title="这是我的文档主页">MD</a></h1>
+			<div class="menus">
+				<a class="menus__item" href="https://zsf90.github.io" target="_blank" title="打开我的主页">首页</a>
+				<a class="menus__item" href="https://www.github.com/zsf90" target="_blank" title="在新的标签页打开我的 Github">GitHub</a>
+				<a class="menus__item" href="https://space.bilibili.com/334715750" target="_blank" title="在新的标签页打开我的 哔哩哔哩">哔哩哔哩</a>
+			</div>
 		</nav>
-		
-
+		<!-- section 1 -->
+		<section class="section">
+			<h2 class="section__title">我的子站点</h2>
+			<!-- 卡片父容器 -->
+			<div class="card-wrap">
+				<!-- card -->
+				<div class="card">
+					<h3 class="card__title"><a href="https://zsf90.github.io/md/programming_language/site/" target="_blank">编程语言</a></h3>
+					<div class="card__desc">
+						<p>
+							这是我的编程语言子站点...
+						</p>
+					</div>
+				</div> <!-- card end! -->
+				<!-- card -->
+				<div class="card">
+					<h3 class="card__title"><a href="https://zsf90.github.io/md/programming_commands/site/" target="_blank">命令文档</a></h3>
+					<div class="card__desc">
+						<p>
+							编程常用命令...
+						</p>
+					</div>
+				</div> <!-- card end! -->
+				<!-- card -->
+				<div class="card">
+					<h3 class="card__title"><a href="https://zsf90.github.io/md/electron_embedded/site/" target="_blank">电子技术</a></h3>
+					<div class="card__desc">
+						<p>
+							电子技术学习文档...
+						</p>
+					</div>
+				</div> <!-- card end! -->
+			</div> <!-- card-wrap end! -->
+		</section><!-- section 1 end -->
 	</main>
+
+	<footer class="footer">
+		<p><span class="copyright">Copyright © 2021 信念D力量</span>
+	</footer>
 
 	<script src="./lib/vue.js"></script>
 	<script type="text/javascript">
