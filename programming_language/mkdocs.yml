@@ -16,6 +16,7 @@ nav:
     - "JavsScript": 'javascript.md'
     - 'CSharp': 'csharp.md'
     - 'WinForm': 'winform.md'
+    - 'WPF': 'wpf.md'
 
   - 关于:
     - 'About': 'about.md'

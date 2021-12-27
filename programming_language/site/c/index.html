@@ -57,6 +57,12 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">C</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">预处理指令</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#define">#define 宏定义</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cplusplus/">C++</a>
@@ -74,6 +80,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../csharp/">CSharp</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../winform/">WinForm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wpf/">WPF</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">关于</span></p>
@@ -119,6 +127,234 @@
             <div class="section">
               
                 <h1 id="c">C 语言编程文档</h1>
+<h2 id="_1">预处理指令</h2>
+<h3 id="define">#define 宏定义</h3>
+<h1 id="define_1">define 可以定义不带参数的宏定义，也可以定义带参数的宏函数。</h1>
+<h4 id="_2">简单的宏</h4>
+<pre><code class="language-c">#define 标识符 替换列表
+#define PI  3.1415
+#define TWO_PI (2*PI)
+#define CUBE(x) (x * x * x) /* 立方宏定义 */
+#define X_MOD4(x) ((x) % 4) /* 一个数对4求余数 */
+#define MAX100(x, y) ( ( (x) * (y) &lt; 100) ) ? 1 : 0
+</code></pre>
+<h4 id="_3">对类型重命名</h4>
+<pre><code class="language-c">#define BOOL int
+</code></pre>
+<h3 id="_4">带参数的宏定义</h3>
+<pre><code class="language-c">#define MAX(x, y)   ((x)&gt;(y) ? (x) : (y))
+#define IS_EVEN(n)  ((n) % 2 == 0)
+#define SCALE(x) ((x)*10)
+</code></pre>
+<p>如果宏有参数，每次参数在替换列表中出现时都要放在圆括号中。</p>
+<blockquote>
+<p>在宏定义中缺少圆括号会导致C语言中最让人讨厌的错误。程序通常仍然可以编译通过，而且宏似乎也可以工作，仅在少说情况下会出错。</p>
+</blockquote>
+<h3 id="undef">#undef 删除一个宏定义</h3>
+<h3 id="include">#include 文件包含</h3>
+<h3 id="ififdefifndefelifelseendif">#if、#ifdef、#ifndef、#elif、#else、#endif 条件编译</h3>
+<p><strong>#ifdef</strong> 测试一个标识符是否已经定义为宏</p>
+<p><strong>#ifndef</strong> 测试一个标识符是否为未被定义为宏</p>
+<p>下面这段代码中第一行如果 BUFFER_SIZE 未被定义过则在第二行定义，如果定义过则不会再次定义。</p>
+<pre><code class="language-c">#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 256
+#endif
+</code></pre>
+<h3 id="errorlinepragma">#error、#line、#pragma</h3>
+<h3 id="_5">## 符号</h3>
+<pre><code class="language-c">#define GENERIC_MAX(type) \
+type type##_max(type: x, type y) \
+{\
+    return x &gt; y ? x : y; \
+}\
+</code></pre>
+<p>例子：</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;string.h&gt;
+
+#define GENERIC_MAX(type) \
+type type##_max(type x, type y) \
+{\
+    return x &gt; y ? x : y; \
+}\
+
+GENERIC_MAX(float)
+GENERIC_MAX(int)
+
+int main(void)
+{
+    float f1 = float_max(4.5f, 5.4f);
+    printf(&quot;MAX Value: %.2f\n&quot;, f1);
+    int i1 = int_max(45, 65);
+    printf(&quot;MAX Value: %d\n&quot;, i1);
+
+    return 0;
+}
+</code></pre>
+<h3 id="do-while0">do {} while(0)</h3>
+<pre><code class="language-c">#define ECHO(s) \
+do { \
+    gets(s); \
+    puts(s); \
+} while(0) \
+</code></pre>
+<h3 id="_6">预定义宏</h3>
+<p>C语言中预定了一些有用的宏，这些宏主要是提供当前编译的信息。</p>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__LINE__</td>
+<td>被编译的文件的行数</td>
+</tr>
+<tr>
+<td>__FILE__</td>
+<td>被编译的文件的名字</td>
+</tr>
+<tr>
+<td>__DATE__</td>
+<td>编译的日期</td>
+</tr>
+<tr>
+<td>__TIME__</td>
+<td>编译的时间</td>
+</tr>
+<tr>
+<td>__STDC__</td>
+<td>如果编译器接受标准C，那么值为1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="defined">defined 运算符</h3>
+<p>这要DEBUG定义了就为真，不用给DEBUG定义值。</p>
+<pre><code class="language-c">#if defined(DEBUG)
+...
+#endif
+</code></pre>
+<h2 id="_7">标准库</h2>
+<p>C语言的标准库总共划分成15个部分，每个部分用一个头文件描述。标准头主要由函数原型、类型定义、以及宏定义组成。如果我们的文件中调用了头中的函数，或是使用了头中定义的类型或宏，那么我们就需要在文件开头将相应的头包含进来。当一个文件包含了多个头时，#include指令的顺序无关紧要。</p>
+<h3 id="_8">对标准库中使用的名字一些限制</h3>
+<ul>
+<li>有一个下划线或一个大写字母开头或有两个下划线开头的标识符</li>
+<li>由一个下划线开头的标识符被保留，仅可以在函数内部声明</li>
+<li>在标准库中所有外部链接的标识符被保留</li>
+</ul>
+<h3 id="_9">使用宏隐藏函数</h3>
+<p>C程序员经常会用宏来代替小的函数，这在标准库中同样很常见。C语言标准允许在头中定义与库函数同名的宏，为了起到保护作用，还要求有实际的函数存在。对于库的头，声明一个函数并同时定义一个有相同名字的宏的情况并不少见。</p>
+<p>在<code>&lt;ctype.h&gt;</code> 中有大量这样成对的函数或宏定义的例子， 例如用来检测一个其字符是否可以显示的函数 <code>isprint</code>。通常的做法是在 <code>&lt;ctype.h&gt;</code>中定义 <code>isprint</code>作为一个函数：</p>
+<pre><code class="language-c">int isprint(int c);
+</code></pre>
+<p>并同时把它定义为一个宏</p>
+<pre><code class="language-c">#define isprint(c)  ((c) &gt;= 0x20 &amp;&amp; (c) &lt;= 0x7e)
+</code></pre>
+<blockquote>
+<p>在默认情况下，对<code>isprint</code> 的调用会被作为宏调用（因为宏名会在预处理时被替换）。</p>
+<p>在大多数情况下，我们对于使用宏来代替实际的函数还是满意的，因为这样可能会提高程序的运行速度。然而在某些情况下，我们可能需要的是一个真实的函数。这可能是由于需要尽量缩小可执行代码的大小，也可能是因为需要一个指向这个函数的指针。</p>
+</blockquote>
+<p>如果需要调用真实的函数而不是宏定义，我们可以使用 <code>#undef</code> 指令 来删除宏定义，从而可以访问到真实的函数。</p>
+<p>下面代码通过取消了 <code>isprint</code>的宏定义来使用 <code>isprint</code> 函数.</p>
+<pre><code class="language-c">#include &lt;ctype.h&gt;
+#undef isprint
+</code></pre>
+<p>注：此外，我们也可以通过给名字加圆括号来屏蔽个别宏调用：</p>
+<pre><code class="language-c">(isprint)(c)
+</code></pre>
+<h3 id="_10">标准库列表</h3>
+<ol>
+<li><code>&lt;assert.h&gt;</code> - 诊断</li>
+<li><code>&lt;ctype.h&gt;</code> - 字符处理</li>
+<li><code>&lt;errno.h&gt;</code> - 错误</li>
+<li><code>&lt;float.h&gt;</code> - 浮点型的特性</li>
+<li><code>&lt;limits.h&gt;</code> - 整型的大小</li>
+<li><code>&lt;locale.h&gt;</code> - 本地化</li>
+<li><code>&lt;math.h&gt;</code> - 数学计算</li>
+<li><code>&lt;setjmp.h&gt;</code> 非本地跳转</li>
+<li><code>&lt;signal.h&gt;</code> - 信号处理</li>
+<li><code>&lt;stdarg.h&gt;</code> - 可变实际参数</li>
+<li><code>&lt;stddef.h&gt;</code> - 常用定义</li>
+<li><code>&lt;stdio.h&gt;</code> - 输入/输出</li>
+<li><code>&lt;stdlib.h&gt;</code> - 常用实用程序</li>
+<li><code>&lt;string.h&gt;</code> - 字符串处理</li>
+<li><code>&lt;time.h&gt;</code> - 时间和日期</li>
+</ol>
+<h3 id="1-asserth-">1. <code>&lt;assert.h&gt;</code> - 诊断</h3>
+<h3 id="11-stddefh-">11. <code>&lt;stddef.h&gt;</code> - 常用定义</h3>
+<p><code>&lt;stddef.h&gt;</code> 提供了常用的类型和宏的定义，但没有声明任何函数。定义的类型包括：</p>
+<ul>
+<li><code>ptrdiff_t</code> 当进行指针相减运算时，其结果的类型。</li>
+<li>size_t 运算符 <code>sizeof</code> 的返回值类型。</li>
+<li><code>wchar_t</code> 一种足够大的、可以用于表示所有支持的地区的所有字符的类型。</li>
+</ul>
+<p>这3中类型都是整数类型。其中 <code>ptrdiff_t</code> 必须是带符号的类型，而 size_t 则必须是无符号的类型。</p>
+<p><code>&lt;stddef.h&gt;</code> 中还定义了两个宏。一个是 <strong>NULL</strong>，用来表示空指针。另一个是 <code>offsetof</code> 需要两个、参数：类型（一个结构体类型）和指定成员（结构体的一个成员）。<code>offsetof</code>宏会计算结构体的起点到指定成员间的字节数。</p>
+<pre><code class="language-c">#define NULL ((void *)0)
+
+
+#define offsetof(TYPE, MEMBER) __builtin_offsetof (TYPE, MEMBER)
+</code></pre>
+<h2 id="_11">输入输出</h2>
+<p>包含输入输出头文件 <code>#include &lt;stdio.h&gt;</code>。</p>
+<p>函数列表：</p>
+<ol>
+<li><code>printf()</code> 格式化打印数据</li>
+<li><code>scanf()</code> </li>
+<li><code>putchar()</code></li>
+<li><code>getchar()</code></li>
+<li><code>puts()</code> </li>
+<li><code>gets()</code></li>
+<li><code>fprintf()</code> 是 <code>printf()</code>的文件版本。</li>
+<li><code>fread()</code></li>
+<li><code>fwrite()</code></li>
+<li><code>sprintf()</code></li>
+<li><code>sscanf()</code></li>
+<li><code>perror()</code></li>
+<li><code>vfprintf()</code></li>
+<li><code>vprintf()</code></li>
+<li><code>vsprintf()</code></li>
+</ol>
+<h3 id="_12">文件指针</h3>
+<p>C语言中流的访问是通过<strong>文件指针</strong>（file pointer）实现的。FILE * 在 <code>&lt;stdio.h&gt;</code> 头文件中定义。</p>
+<pre><code class="language-c">FILE *fp1, *fp2;
+</code></pre>
+<h3 id="_13">标准流和重定向</h3>
+<table>
+<thead>
+<tr>
+<th>文件指针</th>
+<th>流</th>
+<th>默认的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stdin</td>
+<td>标准输入</td>
+<td>键盘</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>标准输出</td>
+<td>屏幕</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>标准错误</td>
+<td>屏幕</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

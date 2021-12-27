@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh_CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="信念D力量">
+  <link rel="canonical" href="https://zsf90.github.io/wpf/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>WPF - 编程文档 - 信念D力量</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/zsf90.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WPF";
+    var mkdocs_page_input_path = "wpf.md";
+    var mkdocs_page_url = "/wpf/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 编程文档 - 信念D力量</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">语言</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../c/">C</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cplusplus/">C++</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../rust/">Rust</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../html/">HTML</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavsScript</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../csharp/">CSharp</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../winform/">WinForm</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">WPF</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#wpf_1">第一个 WPF 应用</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xaml-x">XAML 命名空间（x:）语言功能</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1"></a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">样式</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">触发器</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#trigger">Trigger 简单触发器</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multitrigger">MultiTrigger 多条件触发器</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#datatrigger">DataTrigger 数据触发器</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multidatatrigger">MultiDataTrigger 多条件数据触发器</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">控件模板</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">关于</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">编程文档 - 信念D力量</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>语言 &raquo;</li>
+        
+      
+    
+    <li>WPF</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="wpf">WPF 介绍</h1>
+<h2 id="wpf_1">第一个 WPF 应用</h2>
+<p>用 Visual Studio 2022 创建一个 WPF项目，项目基于 .NET 6 框架。</p>
+<p><strong>MainWindow.xaml</strong></p>
+<pre><code class="language-xml">&lt;Window x:Class=&quot;WpfApp1.MainWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+        xmlns:local=&quot;clr-namespace:WpfApp1&quot;
+        mc:Ignorable=&quot;d&quot;
+        Title=&quot;MainWindow&quot; Height=&quot;450&quot; Width=&quot;800&quot;&gt;
+    &lt;Grid&gt;
+        &lt;Grid.ColumnDefinitions&gt;
+            &lt;ColumnDefinition Width=&quot;0*&quot;/&gt;
+            &lt;ColumnDefinition/&gt;
+        &lt;/Grid.ColumnDefinitions&gt;
+
+    &lt;/Grid&gt;
+&lt;/Window&gt;
+</code></pre>
+<p><strong>MainWindow.xaml.cs</strong></p>
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp1
+{
+    /// &lt;summary&gt;
+    /// Interaction logic for MainWindow.xaml
+    /// &lt;/summary&gt;
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+    }
+}
+</code></pre>
+<p><strong>App.xaml</strong></p>
+<pre><code class="language-xml">&lt;Application x:Class=&quot;WpfApp1.App&quot;
+             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:local=&quot;clr-namespace:WpfApp1&quot;
+             StartupUri=&quot;MainWindow.xaml&quot;&gt;
+    &lt;Application.Resources&gt;
+
+    &lt;/Application.Resources&gt;
+&lt;/Application&gt;
+</code></pre>
+<h2 id="xaml-x">XAML 命名空间（x:）语言功能</h2>
+<h2 id="_1"></h2>
+<h2 id="_2">样式</h2>
+<p>我们可以创建多种样式，然后再多个控件上使用同样的样式。样式就相当于前端中的CSS样式表，使用了创建重复外观样式的技术。</p>
+<p>下面是我们创建的样式代码，样式可以继承与其他样式。</p>
+<pre><code class="language-xml">&lt;Window.Resources&gt;
+        &lt;Style x:Key=&quot;ButtonBase&quot; TargetType=&quot;Button&quot;&gt;
+            &lt;Setter Property=&quot;FontSize&quot; Value=&quot;20&quot;&gt;&lt;/Setter&gt;
+            &lt;Setter Property=&quot;Padding&quot; Value=&quot;18&quot;&gt;&lt;/Setter&gt;
+            &lt;Setter Property=&quot;Margin&quot; Value=&quot;4&quot;&gt;&lt;/Setter&gt;
+            &lt;Setter Property=&quot;Background&quot; Value=&quot;Orange&quot;&gt;&lt;/Setter&gt;
+            &lt;Setter Property=&quot;Foreground&quot; Value=&quot;White&quot;&gt;&lt;/Setter&gt;
+        &lt;/Style&gt;
+
+        &lt;!-- 继承自 ButtonBase 样式 --&gt; 
+        &lt;Style x:Key=&quot;ButtonStyle1&quot; TargetType=&quot;Button&quot; BasedOn=&quot;{StaticResource ButtonBase}&quot;&gt;
+            &lt;Setter Property=&quot;Width&quot; Value=&quot;100&quot;&gt;&lt;/Setter&gt;
+            &lt;Setter Property=&quot;FontSize&quot; Value=&quot;25&quot;&gt;&lt;/Setter&gt;
+        &lt;/Style&gt;
+    &lt;/Window.Resources&gt;
+</code></pre>
+<p><code>ButtonStyle1</code> 样式继承与 <code>ButtonBase</code> 样式。</p>
+<h2 id="_3">触发器</h2>
+<ul>
+<li>Trigger: 简单触发器，该触发器检查特定的依赖的属性的值是否发生变化来使用Setter改变样式。</li>
+<li>MultiTrigger：类似于简单触发器，但是组合了多个条件，所有的条件必须被满足才会改变样式。</li>
+<li>DataTrigger：与简单触发器类似，该触发器与数据绑定一起运行。但是该触发器是检测任何绑定的数据是否发生变化。</li>
+<li>MultiDataTrigger：组合了多个DataTrigger。</li>
+<li>EventTrigger：这是最常用的触发器，当某个事件触发时来改变样式。</li>
+</ul>
+<h3 id="trigger">Trigger 简单触发器</h3>
+<p>下面代码定义了一个<strong>简单触发器</strong>，当按钮的属性 'IsPressed' = True 时（鼠标按下），让按钮的字体大小为 30。</p>
+<pre><code class="language-xml">&lt;!-- 继承自 ButtonBase 样式 --&gt; 
+&lt;Style x:Key=&quot;ButtonStyle1&quot; TargetType=&quot;Button&quot; BasedOn=&quot;{StaticResource ButtonBase}&quot;&gt;
+    &lt;!-- 定义一个简单触发器 --&gt;
+    &lt;Style.Triggers&gt;
+        &lt;!-- 当按钮的 IsPressed 为 True 时应用触发器 --&gt;
+        &lt;Trigger Property=&quot;IsPressed&quot; Value=&quot;True&quot;&gt;
+            &lt;Setter Property=&quot;FontSize&quot; Value=&quot;30&quot;&gt;&lt;/Setter&gt;
+        &lt;/Trigger&gt;
+    &lt;/Style.Triggers&gt;
+    &lt;Setter Property=&quot;Width&quot; Value=&quot;100&quot;&gt;&lt;/Setter&gt;
+    &lt;Setter Property=&quot;FontSize&quot; Value=&quot;25&quot;&gt;&lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<h3 id="multitrigger">MultiTrigger 多条件触发器</h3>
+<pre><code class="language-xml">&lt;!-- 继承自 ButtonBase 样式 --&gt; 
+&lt;Style x:Key=&quot;ButtonStyle1&quot; TargetType=&quot;Button&quot; BasedOn=&quot;{StaticResource ButtonBase}&quot;&gt;
+    &lt;!-- 定义一个触发器容器，里边可以放置多个触发器 --&gt;
+    &lt;Style.Triggers&gt;
+        &lt;!-- 一个简单触发器：当按钮的 IsMouseOver 为 True 时应用触发器。 --&gt;
+        &lt;Trigger Property=&quot;IsMouseOver&quot; Value=&quot;True&quot;&gt;
+            &lt;Setter Property=&quot;Foreground&quot; Value=&quot;Black&quot;&gt;&lt;/Setter&gt;
+        &lt;/Trigger&gt;
+        &lt;!-- 一个多条件触发器: 多条件触发器分为条件部分和设置部分。 --&gt;
+        &lt;MultiTrigger&gt;
+            &lt;MultiTrigger.Conditions&gt;
+                &lt;Condition Property=&quot;IsPressed&quot; Value=&quot;True&quot;&gt;&lt;/Condition&gt;
+                &lt;Condition Property=&quot;FontSize&quot; Value=&quot;22&quot;&gt;&lt;/Condition&gt;
+            &lt;/MultiTrigger.Conditions&gt;
+            &lt;MultiTrigger.Setters&gt;
+                &lt;Setter Property=&quot;Foreground&quot; Value=&quot;Red&quot;&gt;&lt;/Setter&gt;
+            &lt;/MultiTrigger.Setters&gt;
+        &lt;/MultiTrigger&gt;
+    &lt;/Style.Triggers&gt;
+    &lt;Setter Property=&quot;Width&quot; Value=&quot;100&quot;&gt;&lt;/Setter&gt;
+    &lt;Setter Property=&quot;FontSize&quot; Value=&quot;22&quot;&gt;&lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<h3 id="datatrigger">DataTrigger 数据触发器</h3>
+<p>一下代码实现了在输入框中输入颜色名称后背景会随输入的颜色名称发生变化。</p>
+<ol>
+<li>首先将文本框的<strong>Text</strong>属性绑定到自己的<strong>Background</strong>属性上。</li>
+<li>将数据触发器绑定上输入框里文本的长度，当等于大于 20 时，就会执行数据触发器里的内容。</li>
+</ol>
+<pre><code class="language-xml">&lt;!-- 数据触发器 --&gt;
+&lt;Style x:Key=&quot;DataStyleTrigger&quot; TargetType=&quot;TextBox&quot;&gt;
+    &lt;Setter Property=&quot;Background&quot; Value=&quot;{Binding RelativeSource={RelativeSource self}, Path=Text}&quot;&gt;&lt;/Setter&gt;
+    &lt;Style.Triggers&gt;
+        &lt;DataTrigger Binding=&quot;{Binding RelativeSource={RelativeSource self}, Path=Text.Length}&quot; Value=&quot;20&quot;&gt;
+            &lt;Setter Property=&quot;IsEnabled&quot; Value=&quot;False&quot;&gt;&lt;/Setter&gt;
+        &lt;/DataTrigger&gt;
+    &lt;/Style.Triggers&gt;
+&lt;/Style&gt;
+....
+&lt;StackPanel Grid.Row=&quot;1&quot; Grid.Column=&quot;1&quot;&gt;
+    &lt;TextBox Name=&quot;ColorText&quot; Style=&quot;{StaticResource DataStyleTrigger}&quot; Padding=&quot;10&quot; Margin=&quot;20 10 20 5&quot;&gt;&lt;/TextBox&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<h3 id="multidatatrigger">MultiDataTrigger 多条件数据触发器</h3>
+<pre><code class="language-xml">&lt;Style x:Key=&quot;DataTextTrigger-Multi&quot;&gt;
+    &lt;Setter Property=&quot;ItemsControl.FontSize&quot; Value=&quot;20&quot;&gt;&lt;/Setter&gt;
+    &lt;Setter Property=&quot;ItemsControl.Margin&quot;  Value=&quot;10&quot;&gt;&lt;/Setter&gt;
+    &lt;Style.Triggers&gt;
+        &lt;MultiDataTrigger&gt;
+            &lt;MultiDataTrigger.Conditions&gt;
+                &lt;Condition Binding=&quot;{Binding ElementName=cb1, Path=IsChecked}&quot; Value=&quot;True&quot;&gt;&lt;/Condition&gt;
+                &lt;Condition Binding=&quot;{Binding ElementName=cb2, Path=IsChecked}&quot; Value=&quot;True&quot;&gt;&lt;/Condition&gt;
+            &lt;/MultiDataTrigger.Conditions&gt;
+            &lt;MultiDataTrigger.Setters&gt;
+                &lt;Setter Property=&quot;ItemsControl.Background&quot; Value=&quot;Purple&quot;&gt;&lt;/Setter&gt;
+            &lt;/MultiDataTrigger.Setters&gt;
+        &lt;/MultiDataTrigger&gt;
+    &lt;/Style.Triggers&gt;
+&lt;/Style&gt;
+
+&lt;StackPanel Grid.Row=&quot;2&quot; Grid.Column=&quot;1&quot; Style=&quot;{StaticResource DataTextTrigger-Multi}&quot;&gt;
+    &lt;CheckBox Name=&quot;cb1&quot;&gt;全选背景变为紫色&lt;/CheckBox&gt;
+    &lt;CheckBox Name=&quot;cb2&quot;&gt;全选背景变为紫色&lt;/CheckBox&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<h2 id="_4">控件模板</h2>
+<p>在<strong>WPF</strong>中，每个控件都有一个默认的控件模板，用于定义控件的基本外观和行为。<strong>WPF</strong>使用<strong>ControlTemplate</strong>定义控件的外观，每个控件都有一个<strong>Template</strong>的属性。默认情况下。控件通过该属性获取呈现的外观，通过更改<strong>ControlTemplate</strong>，可以为控件定义一个新的样式。</p>
+<pre><code class="language-xml">&lt;Window x:Class=&quot;WPFDemo.TemplateDemo&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+        xmlns:local=&quot;clr-namespace:WPFDemo&quot;
+        mc:Ignorable=&quot;d&quot;
+        Title=&quot;TemplateDemo&quot; Height=&quot;300&quot; Width=&quot;300&quot;&gt;
+    &lt;Window.Resources&gt;
+        &lt;ControlTemplate x:Key=&quot;ButtomTemplate&quot; TargetType=&quot;{x:Type Button}&quot;&gt;
+
+            &lt;Border Name=&quot;Border&quot; BorderBrush=&quot;{TemplateBinding Foreground}&quot;
+                    BorderThickness=&quot;{TemplateBinding BorderThickness}&quot;
+                    CornerRadius=&quot;5&quot; Background=&quot;{TemplateBinding Background}&quot;
+                    TextBlock.Foreground=&quot;{TemplateBinding Foreground}&quot;
+                    Margin=&quot;{TemplateBinding Margin}&quot;&gt;
+                &lt;ContentPresenter RecognizesAccessKey=&quot;True&quot;
+                                  HorizontalAlignment=&quot;{TemplateBinding HorizontalAlignment}&quot;
+                                  VerticalAlignment=&quot;{TemplateBinding VerticalAlignment}&quot;&gt;
+
+                &lt;/ContentPresenter&gt;
+            &lt;/Border&gt;
+            &lt;!--设置模板触发器--&gt;
+            &lt;ControlTemplate.Triggers&gt;
+                &lt;Trigger Property=&quot;IsMouseOver&quot;  Value=&quot;True&quot;&gt;
+                    &lt;Setter TargetName=&quot;Border&quot; Property=&quot;Background&quot; Value=&quot;Red&quot;&gt;&lt;/Setter&gt;
+                &lt;/Trigger&gt;
+                &lt;Trigger Property=&quot;IsPressed&quot; Value=&quot;True&quot;&gt;
+                    &lt;Setter TargetName=&quot;Border&quot; Property=&quot;Background&quot; Value=&quot;Yellow&quot;&gt;&lt;/Setter&gt;
+                &lt;/Trigger&gt;
+            &lt;/ControlTemplate.Triggers&gt;
+        &lt;/ControlTemplate&gt;
+    &lt;/Window.Resources&gt;
+    &lt;Grid&gt;
+
+        &lt;Button   Template=&quot;{StaticResource ButtomTemplate}&quot; Margin=&quot;10&quot; Background=&quot;LightBlue&quot; Content=&quot;我是套用模板的button&quot;&gt;&lt;/Button&gt;
+    &lt;/Grid&gt;
+&lt;/Window&gt;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../winform/" class="btn btn-neutral" title="WinForm"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../winform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
+</html>
