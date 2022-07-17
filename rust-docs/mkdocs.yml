@@ -10,6 +10,7 @@ nav:
     - 数据类型: data-type.md
     - 结构体: struct.md
     - Trait: Trait.md
+    - 依赖: dependencies.md
   - std标准库:
     - ops 模块: std-ops.md
   - 库列表: lib-list.md

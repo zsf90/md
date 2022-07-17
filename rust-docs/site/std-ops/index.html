@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="信念D力量">
-  <link rel="canonical" href="https://www.zsf90.com/lib-list/">
+  <link rel="canonical" href="https://www.zsf90.com/std-ops/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>库列表 - Rust 编程文档 - 信念D力量</title>
+  <title>ops 模块 - Rust 编程文档 - 信念D力量</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u5e93\u5217\u8868";
-    var mkdocs_page_input_path = "lib-list.md";
-    var mkdocs_page_url = "/lib-list/";
+    var mkdocs_page_name = "ops \u6a21\u5757";
+    var mkdocs_page_input_path = "std-ops.md";
+    var mkdocs_page_url = "/std-ops/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -65,14 +65,14 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">std标准库</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../std-ops/">ops 模块</a>
-                    </li>
-                </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">库列表</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ops 模块</a>
     <ul class="current">
     </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lib-list/">库列表</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">关于</span></p>
@@ -102,8 +102,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>std标准库 &raquo;</li>
+        
+      
     
-    <li>库列表</li>
+    <li>ops 模块</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -115,10 +119,47 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="rust">Rust 库列表</h2>
-<ol>
-<li><a href="https://crates.io/crates/windows" title="https://crates.io/crates/windows">windows</a></li>
-</ol>
+                <h2 id="ops">ops 模块是一些运算符的重载功能的集合</h2>
+<h2 id="example"><code>Example</code></h2>
+<pre><code class="language-rust">use std::ops::{Add, Sub};
+
+#[derive(Debug, Copy, Clone, PartialEq)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl Add for Point {
+    type Output = Self;
+
+    fn add(self, other: Self) -&gt; Self {
+        Self {x: self.x + other.x, y: self.y + other.y}
+    }
+}
+
+impl Sub for Point {
+    type Output = Self;
+
+    fn sub(self, other: Self) -&gt; Self {
+        Self {x: self.x - other.x, y: self.y - other.y}
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 1, y: 10 };
+    let p2 = Point { x: 20, y: 40 };
+
+    println!(&quot;{:#?}&quot;, p1 - p2);
+}
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="language-bash">    Finished dev [unoptimized + debuginfo] target(s) in 0.08s
+     Running `target\debug\grrs.exe`
+Point {
+    x: -19,
+    y: -30,
+}
+</code></pre>
               
             </div>
           </div>
@@ -126,10 +167,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../lib-list/" class="btn btn-neutral float-right" title="库列表">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../std-ops/" class="btn btn-neutral" title="ops 模块"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dependencies/" class="btn btn-neutral" title="依赖"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -157,10 +198,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../std-ops/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../dependencies/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../lib-list/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

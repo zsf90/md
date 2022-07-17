@@ -16,12 +16,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.zsf90.com/data-type/</loc>
+         <lastmod>2022-07-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/dependencies/</loc>
+         <lastmod>2022-07-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.zsf90.com/lib-list/</loc>
          <lastmod>2022-07-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.zsf90.com/license/</loc>
+         <lastmod>2022-07-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/std-ops/</loc>
          <lastmod>2022-07-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
