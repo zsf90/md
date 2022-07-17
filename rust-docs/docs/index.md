@@ -1,17 +1,11 @@
-# Welcome to MkDocs
+# 欢迎来的我的 Rust 编程笔记站点
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+访问 Rust 官网 [rust-lang.org](https://www.rust-lang.org/zh-CN/).
 
-## Commands
+## 相关站点
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* Rust 包仓库 [https://crates.io/](https://crates.io/)
+* 在线编译 Rust [https://play.rust-lang.org/](https://play.rust-lang.org/)
+* 公开库的文档站点 [https://docs.rs/](https://docs.rs/)
+* 官方学习导航 [https://www.rust-lang.org/zh-CN/learn](https://www.rust-lang.org/zh-CN/learn)
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
