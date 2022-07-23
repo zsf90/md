@@ -1,20 +1,11 @@
-site_name: Rust 编程文档 - 信念D力量
-site_description: 这是我的 Rust 编程文档。
+site_name: Yew 编程文档 - 信念D力量
+site_description: 这是我的 Yew 编程文档。
 site_author: 信念D力量
 site_url: https://www.zsf90.com
 copyright: 'Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a>'
 
 nav:
   - 首页: index.md
-  - 基础:
-    - 数据类型: data-type.md
-    - 所有权: ownership.md
-    - 结构体: struct.md
-    - Trait: Trait.md
-    - 依赖: dependencies.md
-  - std标准库:
-    - ops 模块: std-ops.md
-  - 库列表: lib-list.md
   - 关于:
     - 'About': 'about.md'
     - 'License': 'license.md'
@@ -33,4 +24,3 @@ extra_css:
 
 markdown_extensions:
   - admonition
-

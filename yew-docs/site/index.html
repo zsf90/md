@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh_CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="这是我的 Yew 编程文档。">
+  <meta name="author" content="信念D力量">
+  <link rel="canonical" href="https://www.zsf90.com/">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Yew 编程文档 - 信念D力量</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="css/zsf90.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u9996\u9875";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Yew 编程文档 - 信念D力量</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">首页</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">关于</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="license/">License</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Yew 编程文档 - 信念D力量</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>首页</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <p>这是 Yew 编程笔记文档</p>
+<p>Yew 的官网地址 <a href="https://yew.rs/">yew.rs</a>.</p>
+<h2 id="yew">使用 Yew 的步骤</h2>
+<ul>
+<li>安装 trunk</li>
+<li>添加 yew 依赖</li>
+<li>设置构建目标</li>
+</ul>
+<h2 id="yew_1">第一个 Yew 例子</h2>
+<h3 id="_1">依赖安装</h3>
+<pre><code class="language-toml">[package]
+name = &quot;yew-app&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+yew = &quot;0.19&quot;
+</code></pre>
+<h3 id="srcmainrs">src/main.rs</h3>
+<pre><code class="language-rust">use yew::prelude::*;
+
+#[function_component(App)]
+fn app() -&gt; Html {
+    html! {
+        &lt;h1&gt;{ &quot;Hello World&quot; }&lt;/h1&gt;
+    }
+}
+
+fn main() {
+    yew::start_app::&lt;App&gt;();
+}
+</code></pre>
+<h2 id="indexhtml">在项目根目录创建 index.html</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt; &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>启动开发服务器</p>
+<pre><code class="language-shell">trunk serve --open --port 8888
+</code></pre>
+<h2 id="rust-html">在 rust 中写 html</h2>
+<p>要在 rust 写 html 需要用到 <code>html! {}</code> 宏，例子如下：</p>
+<pre><code class="language-rust">html! {
+    &lt;&gt;
+        &lt;h1&gt;{ &quot;RustConf Explorer&quot; }&lt;/h1&gt;
+        &lt;div&gt;
+            &lt;h3&gt;{&quot;Videos to watch&quot;}&lt;/h3&gt;
+            &lt;p&gt;{ &quot;John Doe: Building and breaking things&quot; }&lt;/p&gt;
+            &lt;p&gt;{ &quot;Jane Smith: The development process&quot; }&lt;/p&gt;
+            &lt;p&gt;{ &quot;Matt Miller: The Web 7.0&quot; }&lt;/p&gt;
+            &lt;p&gt;{ &quot;Tom Jerry: Mouseless development&quot; }&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h3&gt;{ &quot;John Doe: Building and breaking things&quot; }&lt;/h3&gt;
+            &lt;img src=&quot;https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder&quot; alt=&quot;video thumbnail&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/&gt;
+}
+</code></pre>
+<p>在 rust 的 html! 宏中只能有一个根节点，所以需要用 &lt;&gt; 作为空节点。</p>
+<h2 id="rust-html_1">用 rust 构建 html 中需要的元素</h2>
+<pre><code class="language-rust">use gloo::console::log;
+
+use yew::prelude::*;
+
+#[derive(Properties, PartialEq)]
+struct MyObject {
+    username: String,
+    age: u32,
+}
+
+#[function_component(App)]
+pub fn app() -&gt; Html {
+    let mut users = vec![
+        MyObject {
+            username: &quot;张三&quot;.to_string(),
+            age: 23,
+        },
+        MyObject {
+            username: &quot;王五&quot;.to_string(),
+            age: 43,
+        },
+        MyObject {
+            username: &quot;李四&quot;.to_string(),
+            age: 22,
+        },
+        MyObject {
+            username: &quot;赵六&quot;.to_string(),
+            age: 17,
+        },
+    ];
+
+    let users = users
+        .iter()
+        .map(|user| {
+            html! {
+                &lt;li&gt;{user.username.to_string()} {&quot;-&quot;} {user.age}&lt;/li&gt;
+            }
+        })
+        .collect::&lt;Html&gt;();
+
+    html! {
+        &lt;&gt;
+            &lt;h1 class=&quot;title&quot;&gt;{&quot;Hello Yew&quot;}&lt;/h1&gt;
+            &lt;ul&gt;{users}&lt;/ul&gt;
+        &lt;/&gt;
+    }
+}
+</code></pre>
+<p><img alt="1658577051797" src="image/index/1658577051797.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.2.3
+Build Date UTC : 2022-07-23 11:52:39.436932+00:00
+-->
