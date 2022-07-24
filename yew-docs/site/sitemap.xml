@@ -2,17 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.zsf90.com/</loc>
-         <lastmod>2022-07-23</lastmod>
+         <lastmod>2022-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.zsf90.com/about/</loc>
-         <lastmod>2022-07-23</lastmod>
+         <lastmod>2022-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/callback/</loc>
+         <lastmod>2022-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/form/</loc>
+         <lastmod>2022-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/introduction/</loc>
+         <lastmod>2022-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.zsf90.com/license/</loc>
-         <lastmod>2022-07-23</lastmod>
+         <lastmod>2022-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.zsf90.com/style/</loc>
+         <lastmod>2022-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

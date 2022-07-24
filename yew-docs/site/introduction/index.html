@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="信念D力量">
-  <link rel="canonical" href="https://www.zsf90.com/license/">
+  <link rel="canonical" href="https://www.zsf90.com/introduction/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>License - Yew 编程文档 - 信念D力量</title>
+  <title>初识 Yew - Yew 编程文档 - 信念D力量</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "License";
-    var mkdocs_page_input_path = "license.md";
-    var mkdocs_page_url = "/license/";
+    var mkdocs_page_name = "\u521d\u8bc6 Yew";
+    var mkdocs_page_input_path = "introduction.md";
+    var mkdocs_page_url = "/introduction/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -53,8 +53,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">初识 Yew</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">初识 Yew</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -70,12 +72,10 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">关于</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">License</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../license/">License</a>
                     </li>
                 </ul>
       </div>
@@ -98,12 +98,8 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>关于 &raquo;</li>
-        
-      
     
-    <li>License</li>
+    <li>初识 Yew</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -115,7 +111,81 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="license">License</h2>
+                <p><code>html! {}</code> 宏可以让我们在 <code>Rust</code>中写 html，如下例子：</p>
+<pre><code class="language-rust">use yew::html;
+
+html! {
+    &lt;div&gt;
+        &lt;div data-key=&quot;abc&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;parent&quot;&gt;
+            &lt;span class=&quot;child&quot; value=&quot;anything&quot;&gt;&lt;/span&gt;
+            &lt;label for=&quot;first-name&quot;&gt;{ &quot;First Name&quot; }&lt;/label&gt;
+            &lt;input type=&quot;text&quot; id=&quot;first-name&quot; value=&quot;placeholder&quot; /&gt;
+            &lt;input type=&quot;checkbox&quot; checked=true /&gt;
+            &lt;textarea value=&quot;write a story&quot; /&gt;
+            &lt;select name=&quot;status&quot;&gt;
+                &lt;option selected=true disabled=false value=&quot;&quot;&gt;{ &quot;Selected&quot; }&lt;/option&gt;
+                &lt;option selected=false disabled=true value=&quot;&quot;&gt;{ &quot;Unselected&quot; }&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+};
+</code></pre>
+<p>条件渲染</p>
+<pre><code class="language-rust">use yew::html;
+
+html! {
+    if true {
+        &lt;p&gt;{ &quot;True case&quot; }&lt;/p&gt;
+    }
+};
+</code></pre>
+<p><code>if let else</code></p>
+<pre><code class="language-rust">use yew::html;
+let some_text = Some(&quot;text&quot;);
+
+html! {
+    if let Some(text) = some_text {
+        &lt;p&gt;{ text }&lt;/p&gt;
+    }
+};
+</code></pre>
+<h3 id="html">循环输出 html</h3>
+<pre><code class="language-rust">use yew::prelude::*;
+
+
+#[function_component(App)]
+pub fn app() -&gt; Html {
+
+    let title_enable = false;
+
+    let lists = vec![
+        &quot;item1&quot;, &quot;item2&quot;, &quot;item3&quot;, &quot;item4&quot;, &quot;item5&quot;, &quot;item6&quot;, &quot;item7&quot;, &quot;item8&quot;,
+    ];
+    html! {
+        &lt;&gt;
+            if title_enable {
+                &lt;h1 class=&quot;title&quot;&gt;{&quot;Hello Yew&quot;}&lt;/h1&gt;
+            } else {
+                &lt;h1 class=&quot;title&quot;&gt;{&quot;无标题&quot;}&lt;/h1&gt;
+            }
+
+            &lt;ul&gt;{list_to_html(lists)}&lt;/ul&gt;
+        &lt;/&gt;
+    }
+}
+
+fn list_to_html(list: Vec&lt;&amp;str&gt;) -&gt; Vec&lt;Html&gt; {
+    list.iter()
+        .map(|item| {
+            html! {
+                &lt;li&gt;{item}&lt;/li&gt;
+            }
+        })
+        .collect()
+}
+
+</code></pre>
               
             </div>
           </div>
@@ -123,8 +193,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../style/" class="btn btn-neutral float-right" title="样式">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href=".." class="btn btn-neutral" title="首页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -152,8 +224,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../style/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

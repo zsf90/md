@@ -6,6 +6,10 @@ copyright: 'Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" 
 
 nav:
   - 首页: index.md
+  - 初识 Yew: introduction.md
+  - 样式: style.md
+  - Callback: callback.md
+  - 表单: form.md
   - 关于:
     - 'About': 'about.md'
     - 'License': 'license.md'

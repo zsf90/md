@@ -7,18 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="信念D力量">
-  
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Yew 编程文档 - 信念D力量</title>
+  <link rel="canonical" href="https://www.zsf90.com/form/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>表单 - Yew 编程文档 - 信念D力量</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="./css/theme.css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" />
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="./css/zsf90.css" rel="stylesheet" />
+  <link href="../css/zsf90.css" rel="stylesheet" />
   
-  <script src="./js/jquery-2.1.1.min.js" defer></script>
-  <script src="./js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u8868\u5355";
+    var mkdocs_page_input_path = "form.md";
+    var mkdocs_page_url = "/form/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
@@ -33,9 +40,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="./." class="icon icon-home"> Yew 编程文档 - 信念D力量</a>
+        <a href=".." class="icon icon-home"> Yew 编程文档 - 信念D力量</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,30 +50,32 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./.">首页</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./introduction/">初识 Yew</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">初识 Yew</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./style/">样式</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../style/">样式</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./callback/">Callback</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../callback/">Callback</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./form/">表单</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">表单</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">关于</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="./about/">About</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="./license/">License</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../license/">License</a>
                     </li>
                 </ul>
       </div>
@@ -78,7 +87,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="./.">Yew 编程文档 - 信念D力量</a>
+        <a href="..">Yew 编程文档 - 信念D力量</a>
       </nav>
 
       
@@ -86,9 +95,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="./.">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
+      
     
+    <li>表单</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -100,22 +111,20 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="search">Search Results</h1>
-
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
-  </form>
-
-  <div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
-    Searching...
-  </div>
-
-
+                <h2 id="_1">表单</h2>
+              
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../callback/" class="btn btn-neutral" title="Callback"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -141,13 +150,17 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../callback/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="./js/theme_extra.js" defer></script>
-    <script src="./js/theme.js" defer></script>
-      <script src="./search/main.js" defer></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(false);
