@@ -1,0 +1,30 @@
+site_name: C语言学习笔记 - 信念D力量
+site_description: 我的C语言学习笔记
+site_author: 信念D力量
+site_url: https://zsf90.github.io/
+copyright: 'Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a>'
+
+nav:
+  - 首页: index.md
+  - 基础:
+    - "数据类型": data_type.md
+    - "宏定义": macro_definition.md
+    - "标准库": std_library.md
+
+  - 关于:
+    - 'About': 'about.md'
+
+theme:
+  name: readthedocs # mkdocs # readthedocs
+  locale: zh_CN
+  sticky_navigation: false # 侧栏是否一起滚动
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+
+extra_css:
+  - css/zsf90.css
+
+markdown_extensions:
+  - admonition

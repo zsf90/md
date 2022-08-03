@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh_CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="信念D力量">
+  <link rel="canonical" href="https://zsf90.github.io/event_group/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>事件 - FreeRTOS 学习笔记 - 信念D力量</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/zsf90.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4e8b\u4ef6";
+    var mkdocs_page_input_path = "event_group.md";
+    var mkdocs_page_url = "/event_group/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> FreeRTOS 学习笔记 - 信念D力量</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">基础</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../task/">任务</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">事件</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">创建事件组</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#veventgroupdelete">事件删除函数 vEventGroupDelete()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xeventgroupsetbitsfromisr">事件组置位函数 xEventGroupSetBitsFromISR()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-">例子 - 在中断中置位事件组</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../semaphore/">信号量</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">关于</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">FreeRTOS 学习笔记 - 信念D力量</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基础 &raquo;</li>
+        
+      
+    
+    <li>事件</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">事件组</h1>
+<h2 id="_2">创建事件组</h2>
+<p>xEventGroupCreate()</p>
+<pre><code class="language-c">#include “FreeRTOS.h”
+#include “event_groups.h”
+EventGroupHandle_t xEventGroupCreate( void );
+</code></pre>
+<h2 id="veventgroupdelete">事件删除函数 vEventGroupDelete()</h2>
+<p>函数定义</p>
+<pre><code class="language-c">void vEventGroupDelete( EventGroupHandle_t xEventGroup )
+{
+    EventGroup_t * pxEventBits = xEventGroup;
+    const List_t * pxTasksWaitingForBits = &amp;( pxEventBits-&gt;xTasksWaitingForBits );
+
+    vTaskSuspendAll();
+    {
+        traceEVENT_GROUP_DELETE( xEventGroup );
+
+        while( listCURRENT_LIST_LENGTH( pxTasksWaitingForBits ) &gt; ( UBaseType_t ) 0 )
+        {
+            /* Unblock the task, returning 0 as the event list is being deleted
+             * and cannot therefore have any bits set. */
+            configASSERT( pxTasksWaitingForBits-&gt;xListEnd.pxNext != ( const ListItem_t * ) &amp;( pxTasksWaitingForBits-&gt;xListEnd ) );
+            vTaskRemoveFromUnorderedEventList( pxTasksWaitingForBits-&gt;xListEnd.pxNext, eventUNBLOCKED_DUE_TO_BIT_SET );
+        }
+
+        #if ( ( configSUPPORT_DYNAMIC_ALLOCATION == 1 ) &amp;&amp; ( configSUPPORT_STATIC_ALLOCATION == 0 ) )
+            {
+                /* The event group can only have been allocated dynamically - free
+                 * it again. */
+                vPortFree( pxEventBits );
+            }
+        #elif ( ( configSUPPORT_DYNAMIC_ALLOCATION == 1 ) &amp;&amp; ( configSUPPORT_STATIC_ALLOCATION == 1 ) )
+            {
+                /* The event group could have been allocated statically or
+                 * dynamically, so check before attempting to free the memory. */
+                if( pxEventBits-&gt;ucStaticallyAllocated == ( uint8_t ) pdFALSE )
+                {
+                    vPortFree( pxEventBits );
+                }
+                else
+                {
+                    mtCOVERAGE_TEST_MARKER();
+                }
+            }
+        #endif /* configSUPPORT_DYNAMIC_ALLOCATION */
+    }
+    ( void ) xTaskResumeAll();
+}
+</code></pre>
+<h2 id="xeventgroupsetbitsfromisr">事件组置位函数 xEventGroupSetBitsFromISR()</h2>
+<p>该函数是中断专用的，功能和xEventGroupSetBits类似。</p>
+<p>事件等待</p>
+<pre><code class="language-c">EventBits_t xEventGroupWaitBits( const EventGroupHandle_t xEventGroup, /* 事件标志组句柄 */
+ const EventBits_t uxBitsToWaitFor, /* 等待被设置的事件标志位 */
+ const BaseType_t xClearOnExit, /* 选择是否清零被置位的事件标志位 */
+ const BaseType_t xWaitForAllBits,  /* 选择是否等待所有标志位都被设置 */
+ TickType_t xTicksToWait /* 设置等待时间 */
+);
+</code></pre>
+<h2 id="-">例子 - 在中断中置位事件组</h2>
+<pre><code class="language-c">// 创建一个事件组handle变量
+EventGroupHandle_t event_group_1;
+
+#define BIT_0 (1&lt;&lt;0)
+#define BIT_4 (1&lt;&lt;4)
+
+/*
+* 外部中断 0,1 处理函数
+*/
+void EXTI0_1_IRQHandler(void)
+{
+    if(RESET != exti_interrupt_flag_get(BOARD_BTN_EXTI_LINE)) {
+        BaseType_t xResult;
+        BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+        xResult = xEventGroupSetBitsFromISR(event_group_1, BIT_0, &amp;xHigherPriorityTaskWoken);
+
+        if(xResult != pdFAIL)
+        {
+            portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+        }
+        exti_interrupt_flag_clear(BOARD_BTN_EXTI_LINE); // 清除中断标志
+    }
+}
+
+// 任务阻塞等待事件发生
+void led_task(void *pvParameters)
+{
+    EventBits_t uxBits;
+    const TickType_t xTicksToWait = 100;
+    while(1) {
+        uxBits = xEventGroupWaitBits(event_group_1, BIT_0, pdTRUE, pdTRUE, xTicksToWait);
+
+        if(uxBits &amp; BIT_0)
+        {
+            gd_eval_led_toggle(LED2);
+        }
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../semaphore/" class="btn btn-neutral float-right" title="信号量">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../task/" class="btn btn-neutral" title="任务"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../task/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../semaphore/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
+</html>
