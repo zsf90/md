@@ -1,0 +1,58 @@
+site_name: WinForm 学习笔记 - 信念D力量
+site_description: WinForm
+site_author: 信念D力量
+site_url: https://zsf90.github.io/
+copyright: 'Copyright © 2021 <a href="https://zsf90.github.io" target="_blank" title="zsf90">信念D力量</a>'
+
+nav:
+  - 首页: index.md
+  - 基础:
+    - "基础知识": base.md
+    - "Panel控件": panel.md
+  - ManagementObjectSearcher: ManagementObjectSearcher.md
+
+  - 关于:
+    - 'About': 'about.md'
+
+theme:
+  name: material # mkdocs # readthedocs #material
+  language: zh
+  logo: images/favicon.png
+  favicon: images/favicon.png
+  
+  sticky_navigation: false # 侧栏是否一起滚动
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - content.code.annotate
+  # highlightjs: true
+  # hljs_languages:
+  #   - yaml
+  #   - rust
+  #   - csharp
+  palette:
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/weather-night
+        name: 暗色模式
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 亮色模式
+
+extra_css:
+  - css/zsf90.css
+
+markdown_extensions:
+  - admonition #MKDocs 警告框
+  - footnotes # 脚注
+  - meta # 自定义文章元数据
+  - pymdownx.caret # 下划线
+  - pymdownx.mark # 文本高亮
+  - pymdownx.tilde # 删除线
+  - pymdownx.highlight:
+      anchor_linenums: true
+

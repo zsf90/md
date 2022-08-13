@@ -10,6 +10,7 @@ nav:
     - "任务": 'task.md'
     - "事件": 'event_group.md'
     - "信号量": semaphore.md
+    - "定时器": timer.md
 
   - 关于:
     - 'About': 'about.md'
